@@ -1,9 +1,9 @@
 # lein-dep-bug
 
-A demonstration of a dependency bug in Leiningen. 
+A demonstration of a dependency bug in Leiningen - issue [#1370](https://github.com/technomancy/leiningen/issues/1370)
 
 With a certain depth of dependencies, if there is an a conflicting library version, it does not show up in the dependency listing 
-via `lein deps :tree`.  This makes tracking down th offending library very difficult.  One needs to view the project dependencies manually of each project by examining their project.clj files (thankfully they're opensource).
+via `lein deps :tree`.  This makes tracking down the offending library very difficult.  One needs to view the project dependencies manually of each project by examining their project.clj files (thankfully they're opensource).
 
 In this particular instance, the bug is caused by an dependency of clj-http (`[org.clojure/tools.reader "0.7.7"]`) and clojurescript 0.0-2030 (`[org.clojure/tools.reader "0.7.10"]`).  Running `lein cljsbuild once` will fail with the following 
 
